@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper to validate IDs and prevent malicious injections
+    function isValidId(id) {
+      return id.matches('^[a-zA-Z0-9_\\-]+$') && id.size() <= 100;
+    }
+
+    // 1. Products Collection
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isValidId(productId);
+    }
+
+    // 2. Categories Collection
+    match /categories/{categoryName} {
+      allow read: if true;
+      allow write: if isValidId(categoryName);
+    }
+
+    // 3. Hero Slides Collection
+    match /heroSlides/{slideId} {
+      allow read: if true;
+      allow write: if isValidId(slideId);
+    }
+  }
+}

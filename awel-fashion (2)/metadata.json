@@ -1,0 +1,6 @@
+{
+  "name": "Awel Fashion",
+  "description": "Awel Fashion - Haute Couture, Sustainable Couture & Architectural Modern Essentials",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

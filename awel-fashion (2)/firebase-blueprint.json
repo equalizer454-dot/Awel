@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "An individual fashion couture product in the catalog.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier for the product."
+        },
+        "title": {
+          "type": "string",
+          "description": "Product display title."
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of the product (e.g., Puffers, Boots, etc.)"
+        },
+        "price": {
+          "type": "number",
+          "description": "Product active price."
+        },
+        "originalPrice": {
+          "type": "number",
+          "description": "Optional product retail or original price."
+        },
+        "rating": {
+          "type": "number",
+          "description": "Average review rating."
+        },
+        "reviews": {
+          "type": "integer",
+          "description": "Number of reviews submitted."
+        },
+        "color": {
+          "type": "string",
+          "description": "Default visual color option."
+        },
+        "size": {
+          "type": "string",
+          "description": "Default selected size option."
+        },
+        "popularity": {
+          "type": "integer",
+          "description": "Internal popular ranking score."
+        },
+        "icon": {
+          "type": "string",
+          "description": "Visual unicode emoji icon representing the category."
+        },
+        "iconBg": {
+          "type": "string",
+          "description": "Visual styling background gradient string for the icon."
+        },
+        "image": {
+          "type": "string",
+          "description": "Product high quality image asset URL."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed descriptive paragraph."
+        }
+      },
+      "required": ["id", "title", "category", "price", "color", "size", "icon", "iconBg", "description"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "A fashion category in the boutique.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique category name."
+        }
+      },
+      "required": ["name"]
+    },
+    "HeroSlide": {
+      "title": "HeroSlide",
+      "description": "Dynamic promo banner slide shown on the home page hero slider.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the hero slide."
+        },
+        "image": {
+          "type": "string",
+          "description": "Slide background image URL."
+        },
+        "tag": {
+          "type": "string",
+          "description": "Top highlight subtitle tag."
+        },
+        "title": {
+          "type": "string",
+          "description": "Main bold overlay title."
+        },
+        "desc": {
+          "type": "string",
+          "description": "Description caption text."
+        },
+        "actionPage": {
+          "type": "string",
+          "description": "Destination internal route string (e.g. shop, about, contact)."
+        },
+        "price": {
+          "type": "string",
+          "description": "Promotional active starting price."
+        },
+        "productId": {
+          "type": "integer",
+          "description": "Optional associated product identifier."
+        }
+      },
+      "required": ["id", "image", "tag", "title", "desc", "actionPage"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "#/entities/Product",
+      "description": "Collection of all available design items in the active store catalog."
+    },
+    "/categories/{categoryName}": {
+      "schema": "#/entities/Category",
+      "description": "Collection of active filtering categories."
+    },
+    "/heroSlides/{slideId}": {
+      "schema": "#/entities/HeroSlide",
+      "description": "Collection of promotional hero slider items."
+    }
+  }
+}

@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Oswald", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Share Tech Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-accent: #cbd5e1;
+  --color-accent-hover: #ffffff;
+}
+
+/* Global transitions and arctic background setup */
+html, body {
+  font-family: var(--font-sans);
+  background-color: #3d4f5f !important; /* Exact moody slate-blue background from image */
+  color: #f1f5f9;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Light Mode: Elegant foggy ice morning vibe */
+html:not(.dark) body {
+  background-color: #cbd5e1 !important;
+  color: #1e293b;
+}
+
+/* Force elements with specific utilities to inherit our main themes */
+#root, .min-h-screen {
+  background: transparent !important;
+}
+
+/* Adjust heading styles globally to leverage the incredible Oswald font */
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Technical Bracketed labels style */
+.tech-bracket {
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #cbd5e1;
+}
+
+/* Beautiful custom card styling to replicate the photo's slender panels */
+.group.bg-white,
+.group.bg-zinc-900,
+.glass-panel,
+.glass-card,
+.product-card,
+aside.fixed {
+  background-color: rgba(255, 255, 255, 0.09) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.18) !important;
+  border-radius: 4px !important; /* Elegant sharp-modern look */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Light mode specific background cards */
+html:not(.dark) .group.bg-white,
+html:not(.dark) .group.bg-zinc-900,
+html:not(.dark) .glass-panel,
+html:not(.dark) .glass-card {
+  background-color: rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Card item hover aesthetics */
+.group:hover .bg-white,
+.group:hover .bg-zinc-900,
+.group:hover,
+.hover\:bg-zinc-50:hover, 
+.hover\:bg-white:hover {
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+}
+
+html:not(.dark) .group:hover,
+html:not(.dark) .hover\:bg-zinc-50:hover, 
+html:not(.dark) .hover\:bg-white:hover {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Technical inputs look identical to the image styling fields */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+}
+
+html:not(.dark) input[type="text"],
+html:not(.dark) input[type="number"],
+html:not(.dark) input[type="email"],
+html:not(.dark) input[type="password"],
+html:not(.dark) select,
+html:not(.dark) textarea {
+  background: rgba(255, 255, 255, 0.4) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  color: #1e293b !important;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12) !important;
+}
+
+html:not(.dark) input[type="text"]:focus,
+html:not(.dark) input[type="number"]:focus,
+html:not(.dark) input[type="email"]:focus,
+html:not(.dark) input[type="password"]:focus,
+html:not(.dark) select:focus,
+html:not(.dark) textarea:focus {
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-color: #1e293b !important;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Align accent classes over to the sophisticated technical white/silver/slate palette */
+.bg-accent,
+.hover\:bg-accent:hover,
+.bg-orange-600,
+.hover\:bg-orange-600:hover,
+.bg-orange-500,
+.hover\:bg-orange-500:hover {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  font-weight: bold !important;
+}
+
+.bg-accent:hover,
+.bg-orange-600:hover,
+.bg-orange-500:hover {
+  background-color: #f1f5f9 !important;
+}
+
+html:not(.dark) .bg-accent,
+html:not(.dark) .hover\:bg-accent:hover {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) .bg-accent:hover {
+  background-color: #1e293b !important;
+}
+
+.text-accent,
+.text-orange-600,
+.text-orange-500 {
+  color: #ffffff !important;
+}
+
+/* Fix text contrast inside high-contrast light backgrounds and cards */
+.bg-accent .text-accent,
+.bg-accent .text-orange-600,
+.bg-accent .text-orange-500,
+.bg-orange-600 .text-orange-600,
+.bg-orange-600 .text-orange-500,
+.bg-white .text-orange-600,
+.bg-white .text-orange-500,
+.product-card .text-orange-600,
+.product-card .text-orange-500 {
+  color: #1e293b !important;
+}
+
+html:not(.dark) .text-accent,
+html:not(.dark) .text-orange-600,
+html:not(.dark) .text-orange-500 {
+  color: #0f172a !important;
+}
+
+.border-accent,
+.border-orange-500,
+.border-orange-600 {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+html:not(.dark) .border-accent {
+  border-color: rgba(15, 23, 42, 0.3) !important;
+}
+
+/* Glass buttons with tech look */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Sticker pills */
+.sticker-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+}
+
+/* Floating Navigation Bar styling to match the image precisely */
+nav.fixed {
+  margin: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  border-radius: 0 !important;
+  background-color: rgba(61, 79, 95, 0.8) !important; /* Blends perfectly with image */
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  height: 70px !important;
+}
+
+html:not(.dark) nav.fixed {
+  background-color: rgba(203, 213, 225, 0.85) !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
