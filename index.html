@@ -1,15 +1,370 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Redirecting…</title>
-  <meta http-equiv="refresh" content="0;url=/Awel/awel-fashion%20(2)/index.html" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Awel Fashion — Minimalist Modern Apparel</title>
+  <meta name="description" content="Awel Fashion — contemporary, minimalist fashion. Browse our curated collections and discover timeless wardrobe pieces." />
+
+  <!-- Elegant fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN with a small theme extension for brand colors -->
   <script>
-    // Fallback JS redirect
-    window.location.replace("/Awel/awel-fashion%20(2)/index.html");
+    // Configure Tailwind (CDN)
+    tailwind_config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-cream': '#F7F5F2',
+            'brand-charcoal': '#2B2B2B',
+            'brand-muted': '#6B6B6B',
+            'brand-accent': '#1F2937' // soft charcoal accent
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui']
+          }
+        }
+      }
+    }
   </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Small additional styles for production polish */
+    html { scroll-behavior: smooth; }
+    .card-image {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
 </head>
-<body>
-  <p>Redirecting to <a href="/Awel/awel-fashion%20(2)/index.html">site</a>…</p>
+<body class="bg-brand-cream text-brand-charcoal font-sans antialiased">
+
+  <!-- Navigation (sticky) -->
+  <header class="sticky top-0 z-50">
+    <nav class="backdrop-blur-sm bg-white/70 border-b border-white/30">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between h-16">
+          <!-- Brand -->
+          <a href="#" class="flex items-center gap-3">
+            <span class="inline-block w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-white font-serif text-xl">A</span>
+            <span class="text-xl font-serif tracking-tight text-brand-accent">Awel Fashion</span>
+          </a>
+
+          <!-- Desktop links -->
+          <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-charcoal">
+            <li><a href="#featured" class="hover:text-brand-accent transition">Shop</a></li>
+            <li><a href="#collections" class="hover:text-brand-accent transition">Collections</a></li>
+            <li><a href="#about" class="hover:text-brand-accent transition">About</a></li>
+            <li><a href="#contact" class="hover:text-brand-accent transition">Contact</a></li>
+          </ul>
+
+          <!-- Actions: Cart + Mobile -->
+          <div class="flex items-center gap-4">
+            <button id="cartBtn" aria-label="Open cart" class="p-2 rounded-md hover:bg-gray-100 transition">
+              <!-- Simple cart icon -->
+              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13L5.4 6M7 13l-2 7m14-7l2 7M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+              </svg>
+            </button>
+
+            <!-- Mobile menu button -->
+            <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-gray-100 transition" aria-label="Open menu" aria-expanded="false">
+              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden border-t border-white/30 bg-white/60">
+        <div class="px-6 py-4 space-y-3">
+          <a href="#featured" class="block text-brand-accent font-medium">Shop</a>
+          <a href="#collections" class="block text-brand-charcoal">Collections</a>
+          <a href="#about" class="block text-brand-charcoal">About</a>
+          <a href="#contact" class="block text-brand-charcoal">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mt-6">
+    <!-- Hero -->
+    <section aria-labelledby="hero-heading" class="relative">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="rounded-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-white shadow-lg">
+          <!-- Left: text -->
+          <div class="p-10 md:p-16">
+            <h1 id="hero-heading" class="text-4xl md:text-5xl font-serif leading-tight text-brand-accent mb-4">Awel Fashion</h1>
+            <p class="max-w-xl text-brand-muted mb-6">Timeless silhouettes, refined details. A minimal approach to modern wardrobe essentials crafted with care.</p>
+            <div class="flex items-center gap-4">
+              <a href="#featured" class="inline-block bg-brand-accent text-white px-6 py-3 rounded-md text-sm font-medium shadow hover:opacity-95 transition">Explore Collection</a>
+              <a href="#about" class="text-sm text-brand-muted hover:text-brand-accent transition">Our Story</a>
+            </div>
+          </div>
+
+          <!-- Right: hero image -->
+          <div class="min-h-[260px] card-image" style="background-image:url('https://source.unsplash.com/900x700/?fashion,model,style&sig=21');">
+            <!-- decorative image — accessible alt via aria-hidden (informational) -->
+            <span class="sr-only">Model wearing Awel Fashion</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="featured" aria-labelledby="featured-heading" class="mt-14">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between mb-6">
+          <h2 id="featured-heading" class="text-2xl font-semibold text-brand-accent">Featured</h2>
+          <a href="#collections" class="text-sm text-brand-muted hover:text-brand-accent transition">View all collections →</a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Product Card 1 -->
+          <article class="bg-white rounded-lg overflow-hidden shadow-sm group">
+            <div class="h-64 card-image" style="background-image:url('https://source.unsplash.com/800x800/?minimal-fashion,outfit,woman&sig=1');" role="img" aria-label="Silk slip dress"></div>
+            <div class="p-4">
+              <h3 class="text-lg font-medium text-brand-accent">Silk Slip Dress</h3>
+              <p class="text-sm text-brand-muted mt-1">$198</p>
+              <div class="mt-4 flex items-center gap-3">
+                <button class="add-to-cart inline-block px-4 py-2 bg-black text-white text-sm rounded-md hover:opacity-95 transition" data-product="Silk Slip Dress">Add to Cart</button>
+                <a href="#" class="text-sm text-brand-muted hover:text-brand-accent">View</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 2 -->
+          <article class="bg-white rounded-lg overflow-hidden shadow-sm group">
+            <div class="h-64 card-image" style="background-image:url('https://source.unsplash.com/800x800/?coat,fashion,portrait&sig=2');" role="img" aria-label="Tailored Wool Coat"></div>
+            <div class="p-4">
+              <h3 class="text-lg font-medium text-brand-accent">Tailored Wool Coat</h3>
+              <p class="text-sm text-brand-muted mt-1">$320</p>
+              <div class="mt-4 flex items-center gap-3">
+                <button class="add-to-cart inline-block px-4 py-2 bg-black text-white text-sm rounded-md hover:opacity-95 transition" data-product="Tailored Wool Coat">Add to Cart</button>
+                <a href="#" class="text-sm text-brand-muted hover:text-brand-accent">View</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 3 -->n          <article class="bg-white rounded-lg overflow-hidden shadow-sm group">
+            <div class="h-64 card-image" style="background-image:url('https://source.unsplash.com/800x800/?knitwear,fashion,man&sig=3');" role="img" aria-label="Merino Knit Sweater"></div>
+            <div class="p-4">
+              <h3 class="text-lg font-medium text-brand-accent">Merino Knit Sweater</h3>
+              <p class="text-sm text-brand-muted mt-1">$145</p>
+              <div class="mt-4 flex items-center gap-3">
+                <button class="add-to-cart inline-block px-4 py-2 bg-black text-white text-sm rounded-md hover:opacity-95 transition" data-product="Merino Knit Sweater">Add to Cart</button>
+                <a href="#" class="text-sm text-brand-muted hover:text-brand-accent">View</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 4 -->
+          <article class="bg-white rounded-lg overflow-hidden shadow-sm group">
+            <div class="h-64 card-image" style="background-image:url('https://source.unsplash.com/800x800/?minimalist-fashion,shoes,studio&sig=4');" role="img" aria-label="Leather Minimal Loafers"></div>
+            <div class="p-4">
+              <h3 class="text-lg font-medium text-brand-accent">Leather Minimal Loafers</h3>
+              <p class="text-sm text-brand-muted mt-1">$210</p>
+              <div class="mt-4 flex items-center gap-3">
+                <button class="add-to-cart inline-block px-4 py-2 bg-black text-white text-sm rounded-md hover:opacity-95 transition" data-product="Leather Minimal Loafers">Add to Cart</button>
+                <a href="#" class="text-sm text-brand-muted hover:text-brand-accent">View</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collections teaser -->
+    <section id="collections" class="mt-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="col-span-2 bg-white rounded-lg p-8 shadow-sm">
+            <h3 class="text-xl font-semibold text-brand-accent mb-2">Seasonless Collection</h3>
+            <p class="text-brand-muted">A collection designed to live across seasons — neutral tones, considered fabrics, and clean forms.</p>
+            <div class="mt-6 flex gap-4">
+              <a href="#featured" class="inline-block text-sm px-5 py-2 border border-gray-200 rounded-md hover:bg-gray-50 transition">Shop Now</a>
+              <a href="#about" class="text-sm text-brand-muted hover:text-brand-accent transition">Read more</a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg p-6 shadow-sm flex flex-col justify-center">
+            <h4 class="text-lg font-medium text-brand-accent mb-2">Craft & Care</h4>
+            <p class="text-sm text-brand-muted">Sustainably sourced materials and low-run production for better quality and longevity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mt-16">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-2xl font-serif text-brand-accent mb-4">Our Story</h2>
+        <p class="text-brand-muted leading-relaxed">
+          Awel Fashion began with a simple idea: create elevated everyday pieces with thoughtful tailoring and a quiet aesthetic.
+          We believe in less noise, better fabric, and pieces that transition effortlessly between work, travel, and moments in between.
+          Our collections are carefully edited, seasonless, and made to last.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact / Newsletter -->
+    <section id="contact" class="mt-16 mb-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="bg-white rounded-lg p-8 md:p-12 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div>
+            <h3 class="text-xl font-semibold text-brand-accent">Stay in the loop</h3>
+            <p class="text-brand-muted mt-2">Sign up for product drops, editorial stories, and exclusive offers. Unsubscribe anytime.</p>
+          </div>
+
+          <form id="newsletterForm" class="flex gap-3">
+            <label for="email" class="sr-only">Email address</label>
+            <input id="email" name="email" type="email" required placeholder="Your email" class="flex-1 px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200" />
+            <button type="submit" class="px-4 py-3 bg-brand-accent text-white rounded-md">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/30 bg-white/70">
+    <div class="max-w-7xl mx-auto px-6 py-10">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+        <div>
+          <a href="#" class="flex items-center gap-3 mb-2">
+            <span class="inline-block w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-white font-serif text-xl">A</span>
+            <span class="text-lg font-serif text-brand-accent">Awel Fashion</span>
+          </a>
+          <p class="text-sm text-brand-muted max-w-md">Minimal silhouettes, sustainable intentions. Based in thoughtful design.</p>
+        </div>
+
+        <div class="flex gap-8">
+          <div>
+            <h4 class="text-sm font-semibold text-brand-accent mb-2">Follow</h4>
+            <div class="flex gap-3">
+              <a href="#" class="text-brand-muted hover:text-brand-accent" aria-label="Instagram">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8a4 4 0 100 8 4 4 0 000-8zM17.5 6.5h.01"/></svg>
+              </a>
+              <a href="#" class="text-brand-muted hover:text-brand-accent" aria-label="Twitter">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 19c7 0 11-6 11-11v-.5A7.8 7.8 0 0019 6a7.3 7.3 0 01-2.1.6 3.7 3.7 0 001.6-2 7.4 7.4 0 01-2.3.9A3.7 3.7 0 0013 5a3.7 3.7 0 00-3.7 3.7c0 .3 0 .6.1.9A10.5 10.5 0 015 6.7a3.7 3.7 0 001.1 4.9A3.6 3.6 0 014.8 11v.1a3.7 3.7 0 002.9 3.6 3.8 3.8 0 01-1 .1c-.2 0-.4 0-.6-.1A3.7 3.7 0 008 18.6a7.5 7.5 0 01-4.6 1.6A7.3 7.3 0 012 20.1 10.6 10.6 0 008 22"/></svg>
+              </a>
+              <a href="#" class="text-brand-muted hover:text-brand-accent" aria-label="Pinterest">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2a8 8 0 00-8 8c0 3.5 2 6.5 5 7.5-.1-.6-.2-1.6 0-2.2.2-.6 1.4-4 1.4-4s-.3-.6-.3-1.5c0-1.4.8-2.4 1.9-2.4.9 0 1.3.7 1.3 1.6 0 1-.6 2.5-.9 3.9-.3 1.2.6 2.2 1.9 2.2 2.3 0 3.9-2.4 3.9-5.7A8 8 0 0012 2z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-semibold text-brand-accent mb-2">Contact</h4>
+            <p class="text-sm text-brand-muted">hello@awelfashion.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/30 mt-8">
+        <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-brand-muted flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>© <span id="year"></span> Awel Fashion. All rights reserved.</p>
+          <p>Designed with care — minimal by choice.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Small interactive script -->
+  <script>
+    (function () {
+      // Year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn && menuBtn.addEventListener('click', function () {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Cart button behavior (placeholder)
+      const cartBtn = document.getElementById('cartBtn');
+      cartBtn && cartBtn.addEventListener('click', function () {
+        alert('Your cart is currently empty. Add items from the Featured section.');
+      });
+
+      // Add to cart buttons
+      document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const product = btn.getAttribute('data-product') || 'Item';
+          // Simple visual feedback: toast-like fade
+          createToast(`${product} added to cart`);
+        });
+      });
+
+      // Newsletter form: simple validation + faux submit
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const emailInput = this.querySelector('input[name="email"]');
+          const email = emailInput.value.trim();
+          if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+            createToast('Please enter a valid email address', { danger: true });
+            return;
+          }
+          // Emulate async submit
+          const submitBtn = this.querySelector('button[type="submit"]');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Subscribing...';
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Subscribe';
+            emailInput.value = '';
+            createToast('Thanks! You are subscribed.');
+          }, 900);
+        });
+      }
+
+      // Simple toast system
+      function createToast(message, opts = {}) {
+        const { danger = false } = opts;
+        const t = document.createElement('div');
+        t.className = 'fixed bottom-6 right-6 z-50 px-4 py-2 rounded-md text-white text-sm shadow-lg transition opacity-0';
+        t.style.backgroundColor = danger ? '#dc2626' : '#111827';
+        t.textContent = message;
+        document.body.appendChild(t);
+        requestAnimationFrame(() => t.style.opacity = '1');
+        setTimeout(() => {
+          t.style.opacity = '0';
+          t.addEventListener('transitionend', () => t.remove());
+        }, 2200);
+      }
+
+      // Smooth scroll polyfill: ensure offset for sticky nav
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href').slice(1);
+          if (!targetId) return;
+          const target = document.getElementById(targetId);
+          if (!target) return;
+          e.preventDefault();
+          const y = target.getBoundingClientRect().top + window.pageYOffset - 72; // account for header
+          window.scrollTo({ top: y, behavior: 'smooth' });
+          // close mobile menu if open
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            menuBtn && menuBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
